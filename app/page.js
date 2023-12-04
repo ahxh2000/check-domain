@@ -1,28 +1,4 @@
-'use client'
-
-import { useState  } from 'react'
-import { useRouter } from 'next/navigation';
-
 export default function Home() {
-  const router = useRouter();
-
- 
-  function handleSubmit(event) {
-    event.preventDefault()
-
-    const form = event.target
-    const formData = new FormData(form)
-    const domain = formData.get('Domain')
-    const suffix = formData.get('suffix')
-   
-    const data = {
-      domain: domain,
-      suffix: suffix
-    }
- 
-    router.push(`/searchresult?domain=${domain}&suffix=${suffix}`);
-   console.log('form submitted');
-  }
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -38,15 +14,15 @@ export default function Home() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6"  onSubmit={handleSubmit}>
+          <form className="space-y-6" action='/searchresult'>
             <div>
               <label htmlFor="Domain" className="block text-sm font-medium leading-6 text-gray-900">
                 Domain
               </label>
               <div className="mt-2">
                 <input
-                  id="Domain"
-                  name="Domain"
+                  id="domain"
+                  name="domain"
                   type="text"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
