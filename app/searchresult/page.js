@@ -1,13 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import Displayresult from '@/components/displayresult'
-const page = () => {
+function Page() {
 
-  const [domaindata, setDomaindata] = useState(null);
-  const searchParams = useSearchParams()
-  const domain = searchParams.get('domain')
-  const suffix = searchParams.get('suffix')
+  const [Domaindata, setDomaindata] = useState(null);
+  const SearchParams = useSearchParams()
+  const domain = SearchParams.get('domain')
+  const suffix = SearchParams.get('suffix')
 
   console.log('domain', domain)
   console.log(suffix)
@@ -44,12 +44,12 @@ const page = () => {
       <div>
         searchresult
         {
-          domaindata &&
-          <Displayresult domain={domaindata} />
+          Domaindata &&
+          <Displayresult domain={Domaindata} />
         }
       </div>
     </div>
   )
 }
 
-export default page
+export default Page
